@@ -5,9 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     <!-- Bootstrap CSS -->
     <title>"Task Planner G5"</title>
     <link rel="icon" href="images/task.png">
@@ -21,36 +19,35 @@
         <div class="text-right">
             <a href="page1.html" class="btn btn-info" >To Page 2</a>
         </div>
-        <p>Please complete all fields below to create task:
-        <form>
+        <p>Please complete all fields below to create task:</p>
+    <form id=newTaskForm>
             <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name of Task</span>
                 </div>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" id="newNameOfTask">
             </div>
-        </form>
-        <form>
+        
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Description</span>
                 </div>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" id="newDescription">
             </div>
-        </form>
-        <form>
             <div class="input-group mb-3">
-                <select name="assigned to" class="custom-select mb-3">
+                <select name="assigned to" class="custom-select mb-3" id="newAssignedTo">
                 <option selected>Assigned To:</option>
                 <option value="francois">Francois</option>
                 <option value="kesiye">Kesiye</option>
                 <option value="peter">Peter</option>
                 <option value="phil">Phil</option>
                 <option value="nick">Nick</option>
-              </select>
+       
+                <select>
                 <div>
                     <div class="input-group mb-3">
-                        <select name="status" class="custom-select mb-3">
+                        <select name="status" class="custom-select mb-3" id="newStatus">
                         <option selected>Status:</option>
                         <option value="to do">To Do</option>
                         <option value="in progress">In Progress</option>
@@ -59,9 +56,8 @@
                       </select>
                     </div>
                 </div>
-        </form>
         <div class="container">
-            <p id="datebox">Due Date: <input type="date" required name="due date"></p>
+            <p id="datebox">Due Date:<input type="date" required name="due date"id=newDueDate></p>
         </div>
         <div class="container">
             <div class="button">
@@ -69,9 +65,14 @@
                 <input type="submit" class="btn btn-info" value="Submit">
             </div>
         </div>
+    </form>
         </div>
-
-
-
-      
-        <Body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="js/taskManager.js"></script>
+        <script src="js/index.js"></script>
+</body>
+    
+</html>
+            
