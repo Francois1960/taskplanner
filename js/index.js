@@ -2,7 +2,7 @@
 const taskManager = new TaskManager();
 //taskManager.addTask('Drink Coffee', 'make a lot of expresso', 'Joe', '25/09/2020');
 
-console.log(taskManager.tasks)
+//console.log(taskManager.tasks)
 
 const newtaskForm = document.querySelector('#newTaskForm');
 
@@ -21,14 +21,14 @@ newTaskForm.addEventListener('submit',(event)=>{
     const dueDate = newDueDate.value;
 
   taskManager.addTask(nameOfTask,description,assignedTo,dueDate);
-  /*
+  
     taskManager.render();
 
     newNameOfTask.value='';
     newDescription.value='';
     newDueDate.value='';
     newAssignedTo.value='';
-*/
+
 
 
 

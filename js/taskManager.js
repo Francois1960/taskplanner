@@ -1,16 +1,17 @@
-/*const createTaskHtml=(nameOfTask,description,assignedTo,dueDate,status)=>{
-    <li class="list-group-item">
+
+const createTaskHtml=(nameOfTask, description, assignedTo, dueDate, status)=>
+    `<li class="list-group-item">
         <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
             <h5>${nameOfTask}</h5>
-            <span class="badge badge-danger">${status}</span>
+            <span class="badge badge-info">${status}</span>
         </div>
         <div class="d-flex w-100 mb-3 justify-content-between">
-            <small>Assigned To: ${assignedTo}</small>
-            <small>Due: ${dueDate}</small>
+            <medium>Assigned To: ${assignedTo}</medium>
+            <medium>Due: ${dueDate}</medium>
         </div>
     <p>${description}</p>
-</li>
-};*/
+</li>`
+;
  
 class TaskManager{
     constructor(currentId=0){
@@ -31,7 +32,7 @@ class TaskManager{
 this.tasks.push(task);
 }
   // Create the render method
-  /*render() {
+  render() {
     // Create an array to store the tasks' HTML
     const tasksHtmlList = [];
 
@@ -58,6 +59,6 @@ this.tasks.push(task);
     // Set the inner html of the tasksList on the page
     const tasksList = document.querySelector('#tasksList');
     tasksList.innerHTML = tasksHtml;
-}*/
+}
 }
 
