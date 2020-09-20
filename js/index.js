@@ -1,5 +1,5 @@
 
-const taskManager = new TaskManager();
+const taskManager = new TaskManager(0);
 //taskManager.addTask('Drink Coffee', 'make a lot of expresso', 'Joe', '25/09/2020');
 
 //console.log(taskManager.tasks)
@@ -28,8 +28,17 @@ newTaskForm.addEventListener('submit',(event)=>{
     newDescription.value='';
     newDueDate.value='';
     newAssignedTo.value='';
+});
 
+    const tasksList = document.querySelector('#tasksList');
+    tasksList.addEventListener('click', (event)=> {
 
+      if(event.target.classList.contains('done-button')) {
+        const parentTask=event.target.parentElement.parentElement;
+        const taskId =Number(parentTask.dataset.taskId);
+        const task = taskManager.getTaskById(taskId);
 
-
+      task.status = "Done";
+      taskManager.render();
+}
 });

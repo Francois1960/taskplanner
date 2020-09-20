@@ -1,6 +1,6 @@
 
-const createTaskHtml=(nameOfTask, description, assignedTo, dueDate, status)=>
-    `<li class="list-group-item">
+const createTaskHtml=(id,nameOfTask, description, assignedTo, dueDate, status)=>
+    `<li class="list-group-item" data-task-id=${id}>
         <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
             <h5>${nameOfTask}</h5>
             <span class="badge badge-info">${status}</span>
@@ -10,13 +10,17 @@ const createTaskHtml=(nameOfTask, description, assignedTo, dueDate, status)=>
             <medium>Due: ${dueDate}</medium>
         </div>
     <p>${description}</p>
+    <div class="button">
+    <input type="button" class="btn btn-outline-info done-button" value="Mark as Done">       
+    
+    </div>
 </li>`
 ;
  
 class TaskManager{
     constructor(currentId=0){
         this.tasks=[];
-        this.currentId=currentId;
+        this.currentId=currentId
 
 }
     addTask(nameOfTask,description,assignedTo,dueDate){
@@ -27,13 +31,25 @@ class TaskManager{
     assignedTo: assignedTo,
     dueDate: dueDate,
     status: "To Do"
-
-};
-this.tasks.push(task);
+    };  
+    this.tasks.push(task);
+  
 }
-  // Create the render method
+getTaskById(taskId){
+    let foundTask;
+    for(let i=0; i<this.tasks.length; i++){
+        const task =this.tasks[i];
+        if(task.id===taskId){
+    foundTask = task;
+    }   
+    }
+    return foundTask;
+}  
+
+
+// Create the render method
   render() {
-    // Create an array to store the tasks' HTML
+
     const tasksHtmlList = [];
 
     // Loop over our tasks and create the html, storing it in the array
@@ -46,7 +62,7 @@ this.tasks.push(task);
         const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 
         // Create the task html
-        const taskHtml = createTaskHtml(task.nameOfTask, task.description, task.assignedTo, formattedDate, task.status);
+        const taskHtml = createTaskHtml(task.id, task.nameOfTask, task.description, task.assignedTo, formattedDate, task.status);
 
         // Push it to the tasksHtmlList array
         tasksHtmlList.push(taskHtml);
@@ -59,6 +75,6 @@ this.tasks.push(task);
     // Set the inner html of the tasksList on the page
     const tasksList = document.querySelector('#tasksList');
     tasksList.innerHTML = tasksHtml;
-}
+    }
 }
 
