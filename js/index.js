@@ -20,14 +20,14 @@ newTaskForm.addEventListener('submit',(event)=>{
     const assignedTo =newAssignedTo.value;
     const dueDate = newDueDate.value;
 
-  taskManager.addTask(nameOfTask,description,assignedTo,dueDate);
-  
+    taskManager.addTask(nameOfTask,description,assignedTo,dueDate);
+    taskManager.save();
     taskManager.render();
 
     newNameOfTask.value='';
     newDescription.value='';
-    newDueDate.value='';
     newAssignedTo.value='';
+    newDueDate.value='';
 });
 
     const tasksList = document.querySelector('#tasksList');
@@ -37,8 +37,16 @@ newTaskForm.addEventListener('submit',(event)=>{
         const parentTask=event.target.parentElement.parentElement;
         const taskId =Number(parentTask.dataset.taskId);
         const task = taskManager.getTaskById(taskId);
-
-      task.status = "Done";
-      taskManager.render();
+        task.status = "Done"
+        taskManager.save();
+        taskManager.render();   
+      }
+      if(event.target.classList.contains('delete-button')) {
+        const parentTask=event.target.parentElement.parentElement;
+        const taskId=Number(parentTask.dataset.taskId);
+        taskManager.deleteTask(taskId);
+        taskManager.save();
+        taskManager.render();
+      
 }
 });

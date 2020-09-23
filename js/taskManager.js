@@ -11,8 +11,9 @@ const createTaskHtml=(id,nameOfTask, description, assignedTo, dueDate, status)=>
         </div>
     <p>${description}</p>
     <div class="button">
-    <input type="button" class="btn btn-outline-info done-button" value="Mark as Done">       
-    
+    <input type="button" class="btn btn-outline-success done-button" value="Done">  
+    <input type="button" class="btn btn-outline-danger delete-button" value="Delete">     
+
     </div>
 </li>`
 ;
@@ -35,17 +36,30 @@ class TaskManager{
     this.tasks.push(task);
   
 }
+
+deleteTask(taskId){
+const newTasks=[];
+for(let i=0; i<this.tasks.length; i++){
+    const task=this.tasks[i];
+
+    if (task.id!==taskId){
+newTasks.push(task);
+    }
+}
+this.tasks=newTasks;
+
+
+}
 getTaskById(taskId){
     let foundTask;
     for(let i=0; i<this.tasks.length; i++){
-        const task =this.tasks[i];
+        const task=this.tasks[i];
         if(task.id===taskId){
     foundTask = task;
-    }   
+    } 
     }
     return foundTask;
 }  
-
 
 // Create the render method
   render() {
@@ -56,8 +70,6 @@ getTaskById(taskId){
     for (let i = 0; i < this.tasks.length; i++) {
         // Get the current task in the loop
         const task = this.tasks[i];
-
-        // Format the date
         const date = new Date(task.dueDate);
         const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 
@@ -75,6 +87,25 @@ getTaskById(taskId){
     // Set the inner html of the tasksList on the page
     const tasksList = document.querySelector('#tasksList');
     tasksList.innerHTML = tasksHtml;
+}
+save(){
+    const tasksJson=JSON.stringify(this.tasks);
+    localStorage.setItem('tasks',tasksJson);
+    const currentId = String(this.currentId);
+    localStorage.setItem('currentId', currentId);
+
+}
+load(){
+    if(localStorage.getItem('tasks')){
+    const tasksJson = localStorage.getItem('tasks');
+    this.tasks=JSON.parse(tasksJson);
+
+}
+    if(localStorage.getItem('currentId')){
+        const currentId = localStorage.getItem('currentId');
+        this.currentId=Number(currentId);
     }
+
 }
 
+}
