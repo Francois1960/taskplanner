@@ -23,7 +23,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name of Task</span>
                 </div>
-                <input type="text" class="form-control" id="newNameOfTask">
+                <input type="text" class="form-control" id="newNameOfTask" required minlength="8">
             </div>
         
 
@@ -31,11 +31,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Description</span>
                 </div>
-                <input type="text" class="form-control" id="newDescription">
+                <input type="text" class="form-control" id="newDescription" required minlength="15">
             </div>
         
         
-                <select name="assigned to" class="custom-select mb-3" id="newAssignedTo">
+                <select name="assigned to" class="custom-select mb-3" id="newAssignedTo" required minlength="8">
 
                 <option select="select from">Assign to: by selecting from dropdown</option>
                 <option value="Frank">Frank</option>
@@ -87,8 +87,8 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-    <script src="js/taskManager.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/src/taskManager.js"></script>
+    <script src="js/src/index.js"></script>
 </body>
     
 </html>
