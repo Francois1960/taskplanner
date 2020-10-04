@@ -1,3 +1,5 @@
+let today = new Date(Date.now() + ( 3600 * 1000 * 24)).toISOString().split('T')[0];
+document.getElementsByName("dueDate")[0].setAttribute('min', today);
 
 const taskManager = new TaskManager(0);
 //taskManager.addTask('Drink Coffee', 'make a lot of expresso', 'Joe', '25/09/2020');
@@ -6,18 +8,25 @@ taskManager.load();
 taskManager.render();
 const newtaskForm = document.querySelector('#newTaskForm');
 
+
+
 newTaskForm.addEventListener('submit',(event)=>{
     event.preventDefault();
     const newNameOfTask=document.querySelector('#newNameOfTask');
     const newDescription=document.querySelector('#newDescription');
     const newAssignedTo=document.querySelector('#newAssignedTo');
     const newDueDate=document.querySelector('#newDueDate');
-   
+
+
+
+
+  
+    
 //validation code hereCreate a JavaScript function called “validateTaskForm” that verifies that the inputs inserted by the user in the task form are correct:
 //Name -> Not Empty and longer than 8 characters
 //Description -> Not Empty and longer than 15 characters
 //AssignedTo -> Not Empty and longer than 8 characters
-// DueDate  -> Not Empty and not in the past
+// DueDate  -> Not Empty and not in the pastvar today = new Date().toISOString().split('T')[0];
 
  /* if(newNameOfTask.value.length <= 0 && newNameOfTask.value.length >= 8){
       alert("success");
@@ -37,6 +46,24 @@ const validateTaskForm()=>{
         return true
 
 playing here*/
+/*
+$('.date').date({ 
+  startDate: new Date()
+});	
+$(function () {
+  var date = new Date();
+  date.setDate(date.getDate()-1);
+                  $('#newDuedate').newDueDate({
+  endDate: date,
+                  });
+  $('#newDuedate').newDueDate("setDate", new Date());
+              });
+
+  $('.datepicker').datepicker({ 
+                startDate: new Date()
+            });
+*/
+
 
     const nameOfTask = newNameOfTask.value;
     const description = newDescription.value;

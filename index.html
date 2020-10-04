@@ -15,7 +15,7 @@
     <div class="container mt-3">
         <h1>Task Input Form</h1> 
         <div class="text-right">
-            <a href="page1.html" class="btn btn-info" >To Page 2</a>
+            <!--<a href="page1.html" class="btn btn-info" >To Page 2</a>-->
         </div>
         <p>Please complete all fields below to create task:</p>
     <form id="newTaskForm">
@@ -33,26 +33,47 @@
                 </div>
                 <input type="text" class="form-control" id="newDescription" required minlength="15">
             </div>
-        
-        
-                <select name="assigned to" class="custom-select mb-3" id="newAssignedTo" required minlength="8">
 
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Assign To:</span>
+                </div>
+                <input type="text" class="form-control" id="newAssignedTo" required minlength="8">
+            </div>
+        
+           <!-- <div>
+                <select name="assigned to" class="custom-select mb-3" id="newA" placeholder="Assigned To:"required minlength="8">
+
+        
                 <option select="select from">Assign to: by selecting from dropdown</option>
                 <option value="Frank">Frank</option>
                 <option value="Kesiye">Kesiye</option>
                 <option value="Peter">Peter</option>
                 <option value="Phil">Phil</option>
                 <option value="Dick">Dick</option>
-                <select>
-        
-            </div>           
+                </select>
+                -->
+             <!--<div class="form-group">
+                    <label for="rank" class="cols-sm-2 control-label">Date</label>
+                     <div class="cols-sm-10">
+                      <div class="input-group">
+                       <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                       <input type="date"  id="txtDate" required="Required" class="form-control" name="txtDate" placeholder="Select suitable date" />
+                      </div>
+                    </div>
+                  </div>-->
+            
+
+            
+              
+
         <div class="container">
-            <p id="datebox">Due Date:<input type="date" required name="due date"id="newDueDate"></p>
+            <p id="datebox">Due Date: -    <input type="date" required="required" name="dueDate"id="newDueDate"></p>
         </div>
                 </div>
         <div class="container">
             <div class="button">
-                <input type="button" class="btn btn-info" value="Cancel">
+<!--<input type="button" class="btn btn-info" value="Cancel">-->
                 <input type="submit" class="btn btn-info" value="Submit">
             </div>
         </div>
